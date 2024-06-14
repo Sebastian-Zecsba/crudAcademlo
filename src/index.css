@@ -1,0 +1,222 @@
+*{
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Roboto", sans-serif;
+}
+
+:root {
+  --gray: #e6e7e6;
+  --gray-text: #d2d3d2;
+}
+
+.app_main{
+  max-width: 1440px;
+  margin: auto;
+  padding: 20px;
+}
+
+.btn_create_user {
+  background-color: #5c6bc0;
+  color: white;
+  border: none;
+  padding: 10px 20px;
+  cursor: pointer;
+  border-radius: 5px;
+  font-size: 1.5rem;
+}
+
+.btn_close {
+  background: none;
+  border: none;
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  font-size: 1.5rem;
+  cursor: pointer;
+}
+
+.app_box_header{
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin: 40px 0px 70px 0px;
+}
+
+.app_box_header h1{
+  font-size: 3rem;
+}
+
+.form{
+  width: 100%;
+  height: 100vh;
+  position: fixed;
+  top: 0;
+  left: 0;
+  background-color: rgba(0, 0, 0, 0.5);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.form_content {
+  background-color: white;
+  padding: 20px;
+  border-radius: 5px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  position: relative;
+  width: 100%;
+  max-width: 400px;
+}
+
+.form_content h1{
+  font-size: 2.1rem;
+  font-weight: 900;
+  background: #fefffe;
+}
+
+.box_inputs{
+  display: flex;
+  flex-direction: column;
+  padding: 10px 0px;
+}
+
+.box_inputs_placeholder{
+  display: flex;
+  flex-direction: column;
+  padding: 10px 0px;
+}
+
+.box_inputs_placeholder label{
+  font-size: 1.2rem;
+  padding: 8px 0px;
+}
+
+.box_inputs_placeholder input{
+  font-size: 1rem;
+  padding: 8px 10px;
+  color: #727272;
+  border: 1px #cac8c9 solid;
+  border-radius: 5px;
+  background: #f9fbfd;
+}
+
+.box_inputs label{
+  font-size: 1.2rem;
+  padding: 8px 0px;
+}
+
+.box_inputs input{
+  font-size: 1rem;
+  padding: 8px 10px;
+  color: var(--gray-text);
+  border: 1px #cac8c9 solid;
+  border-radius: 5px;
+  background: #f9fbfd;
+}
+
+.input_birthday{
+  text-transform: uppercase;
+}
+
+.box_inputs input::placeholder{
+  color: var(--gray-text);
+}
+
+.btn-add-user{
+  width: 100%;
+  padding: 8px;
+  margin-top: 30px;
+  background: #555b89;
+  color: #fefffe;
+  font-size: 1rem;
+}
+
+.app_users{
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
+  row-gap: 20px;
+  column-gap: 20px;
+}
+
+.card_user{
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  border-radius: 4px;
+  border: 2.6px var(--gray) solid;
+  padding: 10px;
+  height: fit-content;
+}
+
+.card_user img{
+  width: 100%;
+  object-fit: cover;
+  border-radius: 4px;
+}
+
+.card_user hr{
+  border: 0.10px var(--gray) solid;
+}
+
+
+.card_names{
+  display: flex;
+  gap: 8px;
+}
+
+.card_names h1{
+  font-size: 2rem;
+  font-weight: 500;
+}
+
+.card_email h2{
+  color: var(--gray-text);
+  font-weight: 400;
+  font-size: 1.2rem;
+  padding: 3px 0px;
+}
+
+.card_email p{
+  font-weight: 400;
+  font-size: 1.2rem;
+}
+
+.card_birthday h2{
+  color: var(--gray-text);
+  font-weight: 400;
+  font-size: 1.2rem;
+  padding: 3px 0px;
+}
+
+.card_birthday p{
+  font-weight: 400;
+  font-size: 1.2rem;
+}
+
+.box_birthday{
+  display: flex;
+  align-items: center;
+}
+
+.card_changeState{
+  display: flex;
+  justify-content: flex-end;
+}
+
+.icon{
+  border-radius: 10px;
+  margin: 5px;
+  transition: 0.25s;
+}
+
+.icon:hover{
+  cursor: pointer;
+  transform: scale(1.1);
+}
+
+@media (max-width: 500px) {
+    .app_users{
+      grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+    }
+}
