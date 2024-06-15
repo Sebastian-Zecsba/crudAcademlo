@@ -2,12 +2,12 @@ import { initializeApp } from 'firebase/app';
 import { getStorage } from 'firebase/storage';
 
 const firebaseConfig = {
-  apiKey: "AIzaSyDqbZ1ZcavGkNF-KgeXUUqxfoE7XFRWnos",
-  authDomain: "crudacademlo-2aaa0.firebaseapp.com",
-  projectId: "crudacademlo-2aaa0",
-  storageBucket: "crudacademlo-2aaa0.appspot.com",
-  messagingSenderId: "771835097459",
-  appId: "1:771835097459:web:73c74a9ff8b020caced506"
+  apiKey: import.meta.env.VITE_API_KEY,
+  authDomain: import.meta.env.VITE_AUTH_DOMAIN,
+  projectId: import.meta.env.VITE_PROJECT_ID,
+  storageBucket: import.meta.env.VITE_STORAGE_BUDCKET,
+  messagingSenderId: import.meta.env.VITE_MESSAGING_SENDER_ID,
+  appId: import.meta.env.VITE_APP_ID
 };
 
 const app = initializeApp(firebaseConfig);

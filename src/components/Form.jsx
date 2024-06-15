@@ -58,7 +58,7 @@ const Form = ({addUser, getUpdatedUser, updateUser, setUpdatedUser, toggleModal}
                     <input type="date" id="birthday" placeholder="Cumpleaños" {...register('birthday')} className="input_birthday"/>
                 </div>
 
-                <div>
+                <div className={getUpdatedUser ? `box_inputs_placeholder` : `box_inputs`}>
                     <input 
                         type="file"
                         {...register('image')}
