@@ -2,12 +2,14 @@ import { useEffect, useState } from "react"
 import useApi from "./hooks/useApi"
 import Form from "./components/Form"
 import CardsUsers from "./components/CardsUsers"
+import ConfirmDelete from "./components/ConfirmDelete"
 
 function App() {
 
   const [dataApi, getUsers, addUser, updateUser, deleteUser] = useApi()
-  const [getUpdatedUser, setUpdatedUser] = useState()
+  const [getUserById, setGetUserById] = useState()
   const [isModalOpen, setModalOpen] = useState(false);
+  const [isDeleteOpen, setDeleteOpen] = useState(false)
 
   useEffect(() => {
     getUsers('/users')
@@ -15,12 +17,16 @@ function App() {
   
   const toggleModal = () => {
     if(isModalOpen){
-      setUpdatedUser()
+      setGetUserById()
       setModalOpen(!isModalOpen)
     }else{
       setModalOpen(!isModalOpen)
     }
   };
+
+  const deleteToggleModal = () => {
+    setDeleteOpen(!isDeleteOpen)
+  }
 
   return (
     <div className="app_main">
@@ -35,17 +41,39 @@ function App() {
       {isModalOpen && (
         <Form 
           addUser={addUser}
-          getUpdatedUser={getUpdatedUser}
+          getUserById={getUserById}
           updateUser={updateUser}
-          setUpdatedUser={setUpdatedUser}
+          setGetUserById={setGetUserById}
           toggleModal={toggleModal}
         />
       )}
 
-      <main className="app_users">
-        {dataApi?.map(user => (
-          <CardsUsers key={user.id} user={user} setUpdatedUser={setUpdatedUser} deleteUser={deleteUser} toggleModal={toggleModal}/>
-        ))}
+      {isDeleteOpen && (
+        <ConfirmDelete 
+          deleteUser={deleteUser}
+          getUserById={getUserById}
+          deleteToggleModal={deleteToggleModal}
+          setGetUserById={setGetUserById}
+        />
+      )}
+
+      <main className={dataApi ? "app_users" : 'box_loader'}>
+        {dataApi ? 
+          (dataApi?.map(user => (
+            <CardsUsers 
+              key={user.id} 
+              user={user} 
+              setGetUserById={setGetUserById} 
+              deleteUser={deleteUser} 
+              toggleModal={toggleModal}
+              deleteToggleModal={deleteToggleModal}
+            />
+          ))) 
+        : 
+          <div>
+            <span className="loader"></span>
+          </div>
+        }
       </main>
     </div>
   )

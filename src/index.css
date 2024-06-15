@@ -26,6 +26,10 @@
   font-size: 1.5rem;
 }
 
+.btn_create_user:hover {
+  cursor: pointer;
+}
+
 .btn_close {
   background: none;
   border: none;
@@ -110,7 +114,6 @@
 .box_inputs input{
   font-size: 1rem;
   padding: 8px 10px;
-  color: var(--gray-text);
   border: 1px #cac8c9 solid;
   border-radius: 5px;
   background: #f9fbfd;
@@ -131,6 +134,38 @@
   background: #555b89;
   color: #fefffe;
   font-size: 1rem;
+}
+
+.btn-add-user:hover{
+  cursor: pointer;
+}
+
+.box_confirm_delete{
+  width: 100%;
+  height: 100vh;
+  position: fixed;
+  top: 0;
+  left: 0;
+  background-color: rgba(0, 0, 0, 0.5);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 15px;
+}
+
+.box_delete_content{
+  background-color: white;
+  padding: 20px;
+  border-radius: 5px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  position: relative;
+  width: 100%;
+  max-width: 400px;
+}
+
+.box_delete_content p{
+  padding: 15px 0px 0px 0px;
+  font-size: 1.2rem;
 }
 
 .app_users{
@@ -157,7 +192,6 @@
 .card_user hr{
   border: 0.10px var(--gray) solid;
 }
-
 
 .card_names{
   display: flex;
@@ -212,6 +246,41 @@
 .icon:hover{
   cursor: pointer;
   transform: scale(1.1);
+}
+
+/* loader */
+
+.box_loader{
+  width: 100%;
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+}
+
+.loader {
+  width: 48px;
+  height: 48px;
+  border: 5px solid #FFF;
+  border-bottom-color: #FF3D00;
+  border-radius: 50%;
+  display: inline-block;
+  box-sizing: border-box;
+  animation: rotation 1s linear infinite;
+  margin-top: 120px;
+  }
+
+  @keyframes rotation {
+  0% {
+      transform: rotate(0deg);
+  }
+  100% {
+      transform: rotate(360deg);
+  }
+  } 
+
+@keyframes animloader {
+  0%   { height: 48px} 
+  100% { height: 4px}
 }
 
 @media (max-width: 1024px) {

@@ -1,19 +1,19 @@
 import Gift from "../icons/Gift"
 import Pencil from "../icons/Pencil"
 import Trash from "../icons/Trash"
+import LazyLoad from 'react-lazyload'
 
-const CardsUsers = ({user, setUpdatedUser, deleteUser, toggleModal}) => {
+const CardsUsers = ({user, setGetUserById, toggleModal, deleteToggleModal}) => {
 
-    const handleDelete = () => {
-        deleteUser(`/users`, user.id)
+    const deleteUser = () => {
+        setGetUserById(user)
+        deleteToggleModal()
     }
 
     const handleUpdatedUser = () => {
-        setUpdatedUser(user)
+        setGetUserById(user)
         toggleModal()
     }
-
-    // console.log(user)
 
     return (
         <section className="card_user">
@@ -33,9 +33,11 @@ const CardsUsers = ({user, setUpdatedUser, deleteUser, toggleModal}) => {
                     <p>{user.birthday}</p>
                 </div>
             </div>
-            <img src={user.image_url} alt="asd" />
+            <LazyLoad>
+                <img src={user.image_url} alt="asd" />
+            </LazyLoad>
             <div className="card_changeState">
-                <Trash className="icon" onClick={handleDelete}/>
+                <Trash className="icon" onClick={deleteUser}/>
                 <Pencil className="icon" onClick={handleUpdatedUser} />
             </div>
         </section>
