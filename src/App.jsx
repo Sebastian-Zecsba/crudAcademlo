@@ -25,7 +25,12 @@ function App() {
   };
 
   const deleteToggleModal = () => {
-    setDeleteOpen(!isDeleteOpen)
+    if(isDeleteOpen){
+      setGetUserById()
+      setDeleteOpen(!isDeleteOpen)
+    }else{
+      setDeleteOpen(!isDeleteOpen)
+    }
   }
 
   return (
