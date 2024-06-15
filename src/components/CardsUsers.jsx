@@ -13,7 +13,7 @@ const CardsUsers = ({user, setUpdatedUser, deleteUser, toggleModal}) => {
         toggleModal()
     }
 
-    console.log(user)
+    // console.log(user)
 
     return (
         <section className="card_user">

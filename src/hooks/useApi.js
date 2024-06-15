@@ -21,7 +21,6 @@ const useApi = () => {
             const snapshot = await uploadBytes(storageRef, file);
             const urlStorage = await getDownloadURL(snapshot.ref);
             
-
             data.image_url = urlStorage 
             
             const url = `https://users-crud.academlo.tech/${path}/`
